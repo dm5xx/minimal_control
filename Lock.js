@@ -18,7 +18,7 @@ function checkIfPinIsLocked(pin, bankNrToSwitch)
     // lets see if the pins who are locked somewhere are switched on... 
     for(var b = 0; b < lockedIn.length; b++)
     {
-        // if its switched on, return trueff
+        // if its switched on, return true
         if(isKInNSet(window['statusB'+lockedIn[b]], pin))
             return true;
     }
