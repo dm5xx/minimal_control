@@ -43,6 +43,9 @@ function initCreateBankButtons()
         if(window["BankLabel"]["Bank"+i] == undefined)
             continue;
         createBankButtons(i);
+
+        if(typeof(wrapBanks) !== "undefined" && wrapBanks == 1)
+            toggleBankView(i);   
     }
 }
 
@@ -50,6 +53,7 @@ function createBankButtons(bankNr)
 {
     var createTitleElement = document.createElement("div");
     createTitleElement.setAttribute("class", "title");
+    createTitleElement.setAttribute("onclick", "toggleBankView("+bankNr+")");
     createTitleElement.innerHTML =window["BankLabel"]["Bank"+bankNr];
     document.getElementById("container").appendChild(createTitleElement);      
 
@@ -106,4 +110,21 @@ function createFooter()
     createResetAllElement.setAttribute("id", "rAll");
     document.getElementById("container").appendChild(createResetAllElement);      
 
+}
+
+function toggleBankView(bankNr)
+{
+    for(let a = 0; a < 16; a++)
+    {
+        let element = document.getElementById("b"+bankNr+"b"+a);
+
+        let currentVisibility = element.style.display;
+
+        if(currentVisibility == "none")
+        {
+            element.style.display = "inline-block";
+        }
+        else
+            element.style.display = "none";
+    }
 }
