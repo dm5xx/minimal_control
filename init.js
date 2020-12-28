@@ -1,10 +1,11 @@
 function init()
 {
+	generateStatusBankObjects();
     getYourRemoteIP();
 }
 
 function initSteps()
-{
+{    
     initCreateBankButtons();
     
     if(!hideMenu)
